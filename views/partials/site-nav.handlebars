@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <a
+    class="navbar-brand"
+    href=""
+    style="height: 50px; background-color: #343a40"
+  >
+    <img class="h-100" src="/resimler/FTustson .png" />
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Anasayfa
+          <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/tarihce">Tarihçe</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/kullanicitarifleri">Kullanıcı Tarifleri</a>
+      </li>
+      {{#if displayLink}}
+        <li class="nav-item">
+          <a class="nav-link" href="/posts/new">Yemek Yükle</a>
+        </li>
+      {{/if}}
+    </ul>
+    {{#unless displayLink}}
+      <form class="form-inline my-2 my-lg-0" style="padding-right: 10px;">
+        <a
+          class="nav-link btn btn-outline-info my-2 my-sm-0"
+          href="/users/login"
+        >Oturum Aç</a>
+      </form>
+      <form class="form-inline my-2 my-lg-0">
+        <a
+          class="nav-link btn btn-outline-success my-2 my-sm-0"
+          href="/users/register"
+        >Kaydol</a>
+      </form>
+    {{/unless}}
+    {{#if displayLink}}
+    <form class="form-inline my-2 my-lg-0" style="padding-right: 10px;">
+      <a
+        class="nav-link btn btn-outline-info my-2 my-sm-0"
+        href="/users/logout"
+      >Oturumu Kapat</a>
+    </form>
+    {{/if}}
+  </div>
+</nav>

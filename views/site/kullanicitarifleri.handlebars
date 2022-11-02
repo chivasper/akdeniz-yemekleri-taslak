@@ -1,0 +1,63 @@
+ <div class="text-center my-5" style="padding-top: 50px;">
+  <h1>Kullanici Yemek Tarifleri</h1>
+</div>
+ <div class="fixed-top-left ">
+        <div class="list-group ">
+            <a href="" class="list-group-item list-group-item-action" style="background-color: rgba(133, 133, 133, 0.829); "><h4 >KATALOG </h4></a>
+           {{#each categories}}
+            <a href="/posts/category/{{_id}}" class="list-group-item  " >{{name}}<span>({{num_of_posts}})</span> </a>
+        {{/each}}
+        </div>
+    </div>
+
+<div class="container my-5" >
+   {{#if sessionFlash.message}}
+      <div class="{{sessionFlash.type}}">
+         {{sessionFlash.message}}
+      </div>
+  {{/if}}
+  <div class="row">
+    {{#each posts}}
+      <div class="row">
+        <div class="offset-2 col-sm-4   my-3">
+          <img
+            src="{{post_image}}"
+            style="font-size: 12px;width: 350px;height: 300px; "
+          />
+          <div class=" card border-0 shadow-lg" style="width: 350px;">
+                <div class="card-body ">
+                    <span>
+                <a 
+                    <i class="fa-solid fa-users"></i>
+                    <span >{{author.username}}</span>
+                </a>
+                <a 
+                    <i class="fa-solid fa-clock mx-1"></i>
+                    <span >{{generateDate date 'MMM DD YYYY'}}</span>
+
+                </a>
+                <a 
+                    <i class="fa-solid fa-comments"></i>
+                    <span >10</span>
+
+                </a>
+            </span>
+        </div>
+    </div>
+        </div>
+        <div class="col-sm-2 my-3" style="padding-left: 150px;">
+          <h3>{{title}} İçin Malzemeler</h3>
+          <ul>
+            <li>{{content}}</li>
+          </ul>
+        </div>
+        <div>
+        <h3 class="my-4" style="padding-left:220px ;">{{title}} Nasıl Yapılır?</h3>
+          <ol style="padding-left:250px ;">
+            <li>{{content2}}</li>
+          </ol>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

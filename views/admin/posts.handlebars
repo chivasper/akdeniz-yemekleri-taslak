@@ -1,0 +1,39 @@
+<div class="container my-5">
+     <div class="text-center my-5" style="padding-top: 50px;">
+        <h1>POST</h1>
+    </div>
+  {{> admin-nav}}
+<div class="clearfix"></div>
+    <div class="row">
+    
+      <div class="col-md-8">
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th>TITLE</th>
+                      <th>CATEGORY NAME</th>
+                      <th>EDIT</th>
+                      <th>DELETE</th>
+                  </tr>
+              </thead>
+              <body>
+                {{#each posts }}  
+                   <tr>
+                      <th>{{title}}</th>
+                      <th>{{category.name}}</th>
+                      <td>
+                          <a class="btn btn-warning" href="/admin/posts/edit/{{_id}}">EDIT</a>
+
+                      </td> 
+                      <td>
+                          <form action="/admin/posts/{{_id}}?_method=DELETE" method="POST" >
+								      	  <input type="hidden" name="_method" value="DELETE">
+									        <button type="submit" class="btn btn-danger">Delete</button>
+							</form></td> 
+                  </tr>
+                  {{/each}}
+              </body>
+          </table>
+      </div>
+    </div>
+</div>

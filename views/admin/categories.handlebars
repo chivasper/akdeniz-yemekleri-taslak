@@ -1,0 +1,58 @@
+<div class="container my-5">
+     <div class="text-center my-5" style="padding-top: 50px;">
+        <h1>CATEGORİES</h1>
+    </div>
+  {{> admin-nav}}
+<div class="clearfix"></div>
+    <div class="row">
+      <div class="col-md-3">
+        <form action="" method="POST" enctype="multipart/form-data">
+          <div class="row">
+            <div class="offset-3 col-md-5">
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  name="name"
+                  type="text"
+                  placeholder="category name"
+                  required="required"
+                  data-validaiton-required-message="lütfen category  ismi ekleyin"
+                />
+                <p class="help-block text-danger"></p>
+              </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-lg-11 text-center">
+              <div id="success"></div>
+              <button class="main-btn" type="submit">EKLE</button>
+            </div>
+          </div>
+        </form>
+      <div class="col-md-8">
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>NAME</th>
+                      <th>DELETE</th>
+                  </tr>
+              </thead>
+              <body>
+                {{#each categories }}  
+                   <tr>
+                      <th>{{_id}}</th>
+                      <th>{{name}}</th>
+                      <td>
+                        <form action="/admin/categories/{{_id}}?_method=DELETE" method="post" >
+								      	  <input type="hidden" name="_method" value="DELETE">
+									        <button type="submit" class="btn btn-danger">Delete</button>
+							          </form>
+                      </td> 
+                  </tr>
+                  {{/each}}
+              </body>
+          </table>
+      </div>
+    </div>
+</div>
